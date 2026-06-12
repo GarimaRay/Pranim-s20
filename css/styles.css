@@ -17,8 +17,8 @@
 }
 
 * { box-sizing: border-box; }
-html { height: 100%; overflow: hidden; scroll-behavior: smooth; }
-body { margin: 0; height: 100%; overflow: hidden; background: linear-gradient(135deg, #fffaf0 0%, #e4f3ff 52%, #f9e1eb 100%); }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #fffaf0 0%, #e4f3ff 52%, #f9e1eb 100%); }
 button, a { font: inherit; }
 button { color: inherit; }
 .noise { position: fixed; z-index: 0; inset: 0; pointer-events: none; opacity: .38; background-image: radial-gradient(circle at 12% 22%, rgba(255,255,255,.9) 0 2px, transparent 3px), radial-gradient(circle at 77% 32%, rgba(239,189,87,.45) 0 2px, transparent 3px), linear-gradient(rgba(255,255,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.16) 1px, transparent 1px); background-size: 130px 130px, 170px 170px, 34px 34px, 34px 34px; }
@@ -30,8 +30,8 @@ button { color: inherit; }
 .status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: #75c995; box-shadow: 0 0 12px #75c995; }
 .icon-button { border: 1px solid var(--line); background: transparent; padding: 8px 12px; font-size: .7rem; letter-spacing: .1em; cursor: pointer; }
 
-main { height: 100dvh; overflow: hidden; }
-.chapter { position: relative; z-index: 1; display: none; height: 100dvh; min-height: 0; padding: 82px max(5vw, 28px) 24px; align-content: center; overflow: hidden; animation: reveal .55s ease both; }
+main { min-height: 100vh; }
+.chapter { position: relative; z-index: 1; display: none; min-height: 100vh; padding: 130px max(7vw, 28px) 100px; align-content: center; overflow: hidden; animation: reveal .55s ease both; }
 .chapter.active { display: grid; }
 .chapter::before { content: ""; position: absolute; z-index: -2; width: 520px; height: 520px; right: -170px; top: 6%; border-radius: 50%; background: radial-gradient(circle, rgba(255,240,189,.92), rgba(248,220,232,.4) 55%, transparent 72%); filter: blur(2px); }
 .chapter::after { content: ""; position: absolute; z-index: -2; width: 420px; height: 420px; left: -210px; bottom: -150px; border-radius: 50%; background: radial-gradient(circle, rgba(101,188,232,.22), transparent 70%); }
@@ -54,7 +54,7 @@ small { color: var(--muted); font-size: .65rem; letter-spacing: .15em; }
 .primary-button span { margin-left: 30px; }
 .secondary-button { border: 1px solid var(--line); color: var(--ink); background: transparent; }
 
-.hero-character { position: relative; align-self: end; justify-self: center; width: min(38vw, 520px); height: calc(100dvh - 78px); min-height: 0; }
+.hero-character { position: relative; align-self: end; justify-self: center; width: min(38vw, 520px); height: calc(100vh - 88px); min-height: 590px; }
 .hero-character::before { content: "20"; position: absolute; right: -4vw; top: 8%; color: rgba(255,255,255,.35); font-size: clamp(10rem, 24vw, 24rem); font-weight: 900; line-height: 1; text-shadow: 0 20px 60px rgba(86,139,181,.12); }
 .hero-character img { position: absolute; z-index: 3; right: 2%; bottom: -3%; width: auto; height: 91%; max-width: 100%; object-fit: contain; object-position: bottom center; filter: drop-shadow(0 30px 30px rgba(70,82,105,.22)); }
 .character-orbit { position: absolute; border: 1px solid rgba(86,139,181,.22); border-radius: 50%; }
@@ -110,7 +110,7 @@ small { color: var(--muted); font-size: .65rem; letter-spacing: .15em; }
 .stub-details span + span { border-left: 1px solid rgba(66,89,112,.18); }
 .qr-code { align-self: center; width: 58px; height: 58px; border: 5px solid #fff; outline: 1px solid rgba(25,48,74,.18); background: conic-gradient(from 90deg at 25% 25%, #20364d 25%, transparent 0 50%, #20364d 0 75%, transparent 0), conic-gradient(from 90deg at 75% 75%, #20364d 25%, transparent 0 50%, #20364d 0 75%, transparent 0); background-size: 13px 13px, 17px 17px; background-color: #fff; }
 .stub-sequence { color: #718395; font: .52rem Consolas, monospace; letter-spacing: .12em; }
-.departure-art { position: relative; align-self: end; justify-self: center; width: min(33vw, 470px); height: calc(100dvh - 78px); min-height: 0; }
+.departure-art { position: relative; align-self: end; justify-self: center; width: min(33vw, 470px); height: calc(100vh - 95px); min-height: 600px; }
 .departure-art img { position: absolute; z-index: 4; right: 50%; bottom: -4%; width: auto; height: 86%; max-width: 115%; transform: translateX(50%); filter: drop-shadow(0 26px 28px rgba(67,76,103,.2)); }
 .sun-halo { position: absolute; top: 16%; left: 50%; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(255,240,189,.9), rgba(248,220,232,.5) 60%, transparent 72%); transform: translateX(-50%); }
 .cloud { position: absolute; z-index: 2; height: 50px; border-radius: 50px; background: rgba(255,255,255,.66); filter: blur(.2px); }
@@ -138,7 +138,7 @@ small { color: var(--muted); font-size: .65rem; letter-spacing: .15em; }
 #route::after { inset: 0; width: auto; height: auto; left: 0; bottom: 0; border-radius: 0; background: linear-gradient(180deg, rgba(255,255,255,.18), transparent 24%, transparent 72%, rgba(225,215,229,.2)); pointer-events: none; }
 .route-content { position: relative; z-index: 4; padding: 20px 0; text-shadow: 0 1px 0 rgba(255,255,255,.55); }
 .route-content h2 { font-size: clamp(3.8rem, 7vw, 7.5rem); }
-.australia-scenery { position: relative; z-index: 3; align-self: stretch; width: 100%; height: calc(100dvh - 106px); min-height: 0; pointer-events: none; }
+.australia-scenery { position: relative; z-index: 3; align-self: stretch; width: 100%; min-height: 650px; pointer-events: none; }
 .australia-scenery::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 74% 43%, rgba(255,240,189,.18), transparent 25%); }
 .australia-scenery img { display: none; }
 .scenery-caption { position: absolute; z-index: 2; right: 3vw; bottom: 5vh; display: grid; gap: 3px; min-width: 255px; padding: 16px 18px; border: 1px solid rgba(255,255,255,.88); border-radius: 14px; color: #18304d; background: rgba(255,255,255,.72); box-shadow: 0 16px 42px rgba(52,78,103,.14); backdrop-filter: blur(14px); }
@@ -164,7 +164,7 @@ small { color: var(--muted); font-size: .65rem; letter-spacing: .15em; }
 .vehicle-card strong { font-size: 1.5rem; }
 .vehicle-type { width: fit-content; padding: 5px 8px; color: var(--cyan); border: 1px solid var(--cyan); font-size: .65rem; letter-spacing: .15em; }
 .vehicle-stat { color: var(--muted); }
-.vehicle-showroom { position: relative; align-self: stretch; height: calc(100dvh - 108px); min-height: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.9); border-radius: 34px 12px 34px 12px; background: radial-gradient(circle at 50% 44%, rgba(255,255,255,.94), rgba(220,239,255,.72) 42%, rgba(248,220,232,.6) 76%, rgba(255,240,189,.55)); box-shadow: 0 30px 80px rgba(69,92,116,.16); }
+.vehicle-showroom { position: relative; align-self: stretch; min-height: 690px; overflow: hidden; border: 1px solid rgba(255,255,255,.9); border-radius: 34px 12px 34px 12px; background: radial-gradient(circle at 50% 44%, rgba(255,255,255,.94), rgba(220,239,255,.72) 42%, rgba(248,220,232,.6) 76%, rgba(255,240,189,.55)); box-shadow: 0 30px 80px rgba(69,92,116,.16); }
 .showroom-lights { position: absolute; inset: 0; background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.6) 38%, transparent 55%), radial-gradient(circle at 20% 10%, rgba(255,255,255,.85), transparent 20%); animation: lightSweep 7s ease-in-out infinite; }
 .showroom-city { position: absolute; z-index: 2; top: 28px; left: 30px; color: #568bb5; font-size: .68rem; font-weight: 900; letter-spacing: .18em; }
 .vehicle-stage { position: absolute; inset: 85px 20px 125px; display: grid; place-items: center; perspective: 900px; }
@@ -316,45 +316,9 @@ small { color: var(--muted); font-size: .65rem; letter-spacing: .15em; }
 @keyframes candleFlicker { to { transform: translateX(-50%) scale(.88) rotate(-7deg); filter: brightness(1.15); } }
 @keyframes doodleFloat { 50% { margin-top: -10px; transform: rotate(8deg); } }
 
-@media (min-width: 701px) and (max-height: 850px) {
-  .chapter { padding-top: 74px; padding-bottom: 12px; }
-  h1, h2 { margin-block: 6px 12px; }
-  .hero-copy, .section-copy { line-height: 1.4; }
-  .mission-card { margin-block: 16px; }
-  #departure h2 { font-size: clamp(3.5rem, 5.5vw, 5.4rem); }
-  .departure-board { margin: 8px 0 14px; }
-  .board-row { padding: 13px 18px; }
-  .boarding-pass { min-height: 210px; margin-bottom: 14px; }
-  .ticket-main { padding: 12px 18px 10px; }
-  .ticket-route { padding: 9px 0 8px; }
-  .airport strong { font-size: clamp(2.2rem, 3.8vw, 3.4rem); }
-  .ticket-details { padding: 7px 0; }
-  .ticket-footer { padding-top: 7px; }
-  .ticket-stub { padding-block: 12px 9px; }
-  .route-content h2 { font-size: clamp(3.4rem, 5.7vw, 5.5rem); }
-  .route-map { margin-block: 5px 14px; }
-  .route-stop { padding: 7px 0; }
-  .route-icon { width: 48px; height: 48px; }
-  .route-map::before { left: 23px; }
-  .garage-controls h2 { font-size: clamp(3.5rem, 5.8vw, 5.7rem); }
-  .garage-grid { margin: 10px 0 14px; }
-  .vehicle-card { grid-template-columns: 82px 1fr; min-height: 112px; padding: 9px; }
-  .vehicle-thumb { height: 78px; }
-  .vehicle-thumb img { max-height: 75px; }
-  .vehicle-card-copy { gap: 5px; }
-  .coin-game-header { margin-bottom: 8px; }
-  .coin-game-header h2 { font-size: clamp(3rem, 5vw, 4.8rem); }
-  .game-instructions { font-size: .9rem; }
-  .game-score { padding: 10px 14px; }
-  .coin-arena { height: calc(100dvh - 262px); min-height: 330px; }
-  .game-controls { margin-top: 6px; }
-  .birthday-copy { padding-top: 5vh; }
-}
-
 @media (max-width: 700px) {
   .hud-status { display: none; }
-  html, body, main { overflow: auto; }
-  .chapter { height: auto; min-height: 100dvh; padding-top: 82px; overflow: hidden; }
+  .chapter { padding-top: 110px; }
   .hero-section { grid-template-columns: 1fr; align-content: start; padding-bottom: 0; }
   .hero-content { padding-bottom: 24px; }
   .hero-character { width: min(100%, 430px); height: 560px; min-height: 0; }
