@@ -7,6 +7,7 @@ document.querySelectorAll('[data-bind="name"]').forEach((element) => {
 });
 
 function showChapter(id) {
+  document.body.classList.remove("birthday-mode");
   chapters.forEach((chapter) => chapter.classList.toggle("active", chapter.id === id));
   progressDots.forEach((dot) => dot.classList.toggle("active", dot.dataset.target === id));
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -143,6 +144,7 @@ function scheduleNextItem(type, delay = .55) {
 }
 
 function resetCoinGame() {
+  document.body.classList.remove("birthday-mode");
   document.querySelector("#confetti").replaceChildren();
   collectedCoins = 0;
   gameRunning = true;
@@ -185,6 +187,7 @@ function collectCoin() {
   if (collectedCoins >= 20) {
     gameRunning = false;
     runnerItems.replaceChildren();
+    document.body.classList.add("birthday-mode");
     birthdayReveal.hidden = false;
     launchConfetti();
     return;
