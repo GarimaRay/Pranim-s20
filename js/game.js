@@ -300,12 +300,15 @@ document.querySelector("#play-again-game").addEventListener("click", resetCoinGa
 function launchConfetti() {
   const container = document.querySelector("#confetti");
   container.replaceChildren();
-  const colors = ["#ffb703", "#00d4ff", "#ff4d6d", "#f6f7fb"];
+  const colors = ["#efbd57", "#65bce8", "#e7a5bd", "#7ccdbd", "#806db5", "#fff6dc"];
 
-  for (let index = 0; index < 70; index += 1) {
+  for (let index = 0; index < 150; index += 1) {
     const piece = document.createElement("i");
     piece.style.left = `${Math.random() * 100}%`;
     piece.style.background = colors[index % colors.length];
+    piece.style.borderRadius = index % 3 === 0 ? "50%" : "3px";
+    piece.style.width = `${6 + Math.random() * 8}px`;
+    piece.style.height = `${9 + Math.random() * 15}px`;
     piece.style.animationDelay = `${Math.random() * 1.4}s`;
     piece.style.animationDuration = `${2.4 + Math.random() * 2}s`;
     container.appendChild(piece);
